@@ -9,4 +9,5 @@ func _physics_process(delta: float) -> void:
 	if position.y<20:
 		position.y+=20
 		falldistextra+=20
+		Global.emitwrap()
 	Global.falldist = -position.y+falldistextra
