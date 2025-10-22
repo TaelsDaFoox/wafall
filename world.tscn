@@ -1,16 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://cue8mk11ld61t"]
+[gd_scene load_steps=9 format=3 uid="uid://cue8mk11ld61t"]
 
 [ext_resource type="PackedScene" uid="uid://dian7bnwaawuo" path="res://waffle.tscn" id="1_f3sb7"]
 [ext_resource type="Material" uid="uid://chl7b8pmev0ih" path="res://materials/Bricks.tres" id="1_fj7yv"]
 [ext_resource type="PhysicsMaterial" uid="uid://oyblx46378ey" path="res://materials/frictionless.tres" id="3_036b0"]
 [ext_resource type="Script" uid="uid://vawiibyw4ptv" path="res://camera.gd" id="3_tlwt5"]
 [ext_resource type="Script" uid="uid://cborgbtsf0dtx" path="res://wall_collision.gd" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://bvivxs4owof8v" path="res://ui.tscn" id="6_dwbse"]
 
 [sub_resource type="Environment" id="Environment_gv5m4"]
 ambient_light_source = 2
 ambient_light_color = Color(0.58443636, 0.5058974, 0.77317214, 1)
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.005
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwbse"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
 
 [node name="World" type="Node3D"]
 
@@ -24,11 +31,6 @@ material = ExtResource("1_fj7yv")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gv5m4")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-light_energy = 0.175
-shadow_enabled = true
-
 [node name="Waffle" parent="." instance=ExtResource("1_f3sb7")]
 physics_material_override = ExtResource("3_036b0")
 movespeed = 100000.0
@@ -39,12 +41,23 @@ current = true
 script = ExtResource("3_tlwt5")
 player = NodePath("../Waffle")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+shadow_enabled = true
+omni_range = 96.99061
+
 [node name="WallCollision" type="CSGTorus3D" parent="." node_paths=PackedStringArray("player")]
 use_collision = true
 collision_priority = 10.0
 inner_radius = 40.632484
 outer_radius = 79.554504
-sides = 32
+sides = 64
 ring_sides = 3
 script = ExtResource("4_aqk2v")
 player = NodePath("../Waffle")
+
+[node name="UI" parent="." instance=ExtResource("6_dwbse")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -72.83896, 0)
+size = Vector3(10.7126465, 2.3063965, 121.94751)
+material = SubResource("StandardMaterial3D_dwbse")
