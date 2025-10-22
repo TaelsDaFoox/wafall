@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dian7bnwaawuo"]
+
+[ext_resource type="PackedScene" uid="uid://b113vnreh7lai" path="res://models/waffle.glb" id="1_0tgtb"]
+[ext_resource type="Script" uid="uid://dfneuo3jlriph" path="res://waffle.gd" id="1_lkhhq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lkhhq"]
+size = Vector3(7.9521484, 9.730469, 1.2021484)
+
+[node name="Waffle" type="RigidBody3D"]
+script = ExtResource("1_lkhhq")
+
+[node name="model" parent="." instance=ExtResource("1_0tgtb")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lkhhq")
