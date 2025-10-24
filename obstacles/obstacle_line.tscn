@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqmp38mkfv0yn"]
+
+[ext_resource type="Script" uid="uid://mguwx63lkt2u" path="res://obstacle.gd" id="1_882fk"]
+[ext_resource type="Material" uid="uid://jdpydlx2ixyq" path="res://materials/killbrick_mat.tres" id="1_qdxwr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5qy2g"]
+size = Vector3(10.728516, 2.282959, 108.23047)
+
+[node name="Obstacle" type="CSGBox3D"]
+size = Vector3(10.7126465, 2.3063965, 121.94751)
+material = ExtResource("1_qdxwr")
+script = ExtResource("1_882fk")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_5qy2g")

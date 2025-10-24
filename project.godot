@@ -65,7 +65,7 @@ left={
 [physics]
 
 common/physics_ticks_per_second=240
-3d/default_gravity=15.0
+3d/default_gravity=30.0
 
 [rendering]
 

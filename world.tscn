@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cue8mk11ld61t"]
+[gd_scene load_steps=9 format=3 uid="uid://cue8mk11ld61t"]
 
 [ext_resource type="PackedScene" uid="uid://dian7bnwaawuo" path="res://waffle.tscn" id="1_f3sb7"]
 [ext_resource type="Material" uid="uid://chl7b8pmev0ih" path="res://materials/Bricks.tres" id="1_fj7yv"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://vawiibyw4ptv" path="res://camera.gd" id="3_tlwt5"]
 [ext_resource type="Script" uid="uid://cborgbtsf0dtx" path="res://wall_collision.gd" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://bvivxs4owof8v" path="res://ui.tscn" id="6_dwbse"]
-[ext_resource type="Script" uid="uid://mguwx63lkt2u" path="res://obstacle.gd" id="7_pkg7o"]
+[ext_resource type="Script" uid="uid://hdu1pfek40vo" path="res://obstacle_controller.gd" id="8_gbfbk"]
 
 [sub_resource type="Environment" id="Environment_gv5m4"]
 ambient_light_source = 2
@@ -14,14 +14,6 @@ ambient_light_color = Color(0.58443636, 0.5058974, 0.77317214, 1)
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 0.005
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwbse"]
-albedo_color = Color(1, 0, 0, 1)
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dwbse"]
-size = Vector3(10.728516, 2.282959, 108.23047)
 
 [node name="World" type="Node3D"]
 
@@ -61,24 +53,5 @@ player = NodePath("../Waffle")
 
 [node name="UI" parent="." instance=ExtResource("6_dwbse")]
 
-[node name="Obstacle" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -72.83896, 0)
-size = Vector3(10.7126465, 2.3063965, 121.94751)
-material = SubResource("StandardMaterial3D_dwbse")
-script = ExtResource("7_pkg7o")
-
-[node name="Area3D" type="Area3D" parent="Obstacle"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle/Area3D"]
-shape = SubResource("BoxShape3D_dwbse")
-
-[node name="Obstacle2" type="CSGBox3D" parent="."]
-transform = Transform3D(0.58473116, 0, -0.81122714, 0, 1, 0, 0.81122714, 0, 0.58473116, 0, -288.8379, 0)
-size = Vector3(10.7126465, 2.3063965, 121.94751)
-material = SubResource("StandardMaterial3D_dwbse")
-script = ExtResource("7_pkg7o")
-
-[node name="Area3D" type="Area3D" parent="Obstacle2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle2/Area3D"]
-shape = SubResource("BoxShape3D_dwbse")
+[node name="ObstacleController" type="Node3D" parent="."]
+script = ExtResource("8_gbfbk")
