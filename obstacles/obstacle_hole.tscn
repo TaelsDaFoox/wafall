@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://jdpydlx2ixyq" path="res://materials/killbrick_mat.tres" id="2_d1yeu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_882fk"]
-size = Vector3(10.728516, 2.282959, 108.23047)
+size = Vector3(28.18695, 2.282959, 108.23047)
 
 [node name="Obstacle" type="Node3D"]
 script = ExtResource("1_rpwig")
@@ -14,10 +14,39 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.516144, 0, 0)
 shape = SubResource("BoxShape3D_882fk")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(10.676025, 2.248291, 114.22754)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.49191, 0, 0)
+shape = SubResource("BoxShape3D_882fk")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.012115703, 0, -38.50403)
+shape = SubResource("BoxShape3D_882fk")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.012119069, 0, 38.50403)
+shape = SubResource("BoxShape3D_882fk")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44.173035)
+size = Vector3(92.24707, 2.248291, 39.88147)
+material = ExtResource("2_d1yeu")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44.514847)
+size = Vector3(92.24707, 2.248291, 39.88147)
+material = ExtResource("2_d1yeu")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -44.34394, 0, -0.1709077)
+size = Vector3(92.24707, 2.248291, 39.88147)
+material = ExtResource("2_d1yeu")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44.34394, 0, -0.17090443)
+size = Vector3(92.24707, 2.248291, 39.88147)
 material = ExtResource("2_d1yeu")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

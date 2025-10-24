@@ -63,8 +63,6 @@ stream = ExtResource("8_ioo17")
 volume_db = -5.0
 autoplay = true
 
-[node name="ShaderGlobalsOverride" type="ShaderGlobalsOverride" parent="."]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
