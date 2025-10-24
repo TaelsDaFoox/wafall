@@ -1,23 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://ufildksfj5fi"]
+[gd_scene load_steps=4 format=3 uid="uid://ufildksfj5fi"]
 
 [ext_resource type="Material" uid="uid://jdpydlx2ixyq" path="res://materials/killbrick_mat.tres" id="1_4pxme"]
+[ext_resource type="Script" uid="uid://mguwx63lkt2u" path="res://obstacle.gd" id="1_ymegw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4pxme"]
 size = Vector3(97.8407, 2.282959, 94.16907)
 
 [node name="Obstacle" type="Node3D"]
+script = ExtResource("1_ymegw")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.64621, 0, 29.917053)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.89308, 0, 46.540688)
 size = Vector3(97.84711, 2.3857422, 93.4259)
 material = ExtResource("1_4pxme")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.182377, 0, -63.59141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.935505, 0, -46.967777)
 size = Vector3(97.84711, 2.3857422, 93.4259)
 material = ExtResource("1_4pxme")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2468729, 0, 16.623634)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.17975, 0, -63.920227)
@@ -26,3 +31,5 @@ shape = SubResource("BoxShape3D_4pxme")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.50903, 0.013225555, 30.189287)
 shape = SubResource("BoxShape3D_4pxme")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

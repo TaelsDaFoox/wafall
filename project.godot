@@ -21,6 +21,8 @@ Global="*res://Global.gd"
 
 [display]
 
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/stretch/mode="viewport"
 
 [editor_plugins]
@@ -71,3 +73,4 @@ common/physics_ticks_per_second=240
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_3d=1

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cc6jq52jf3gxv"]
+
+[ext_resource type="Shader" uid="uid://338hu16a6wyk" path="res://materials/jpeg.gdshader" id="1_4kowo"]
+
+[resource]
+shader = ExtResource("1_4kowo")
+shader_parameter/washout_intensity = 0.3
+shader_parameter/blur_amount = 1.0000000475
+shader_parameter/blockiness = 500.000021375
+shader_parameter/color_steps = 32.0
+shader_parameter/grain_amount = 0.02
