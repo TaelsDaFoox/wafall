@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgl0vl8m485i6"]
+
+[ext_resource type="Script" uid="uid://b77tc5d3h52jl" path="res://title.gd" id="1_oyqm6"]
+[ext_resource type="VideoStream" uid="uid://ch3syrmssrrbc" path="res://videos/Waffle falling over2.ogv" id="1_y7k74"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oyqm6")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_y7k74")
+autoplay = true
+expand = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.7
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

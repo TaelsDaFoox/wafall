@@ -28,3 +28,4 @@ func newObstacle():
 			return obstacle2.instantiate()
 		3:
 			return obstacle3.instantiate()
+		

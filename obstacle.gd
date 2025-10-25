@@ -2,7 +2,7 @@ extends Node3D
 var spinspeed := 0.0
 
 func _ready() -> void:
-	spinspeed= randf_range(-0.5,0.5)
+	spinspeed= randf_range(-1,1)
 	Global.wrap.connect(wrap)
 func wrap():
 	position.y+=20
