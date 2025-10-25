@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fyqef")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Healthbar" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -20,7 +20,7 @@ offset_left = 4.0
 offset_top = 10.0
 offset_right = -4.0
 offset_bottom = 36.0
-color = Color(0, 1, 0.43529412, 0.5803922)
+color = Color(0, 1, 0.4333334, 0.35686275)
 
 [node name="ScoreLabel" type="Label" parent="."]
 layout_mode = 1

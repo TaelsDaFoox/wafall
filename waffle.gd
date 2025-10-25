@@ -20,5 +20,6 @@ func _physics_process(delta: float) -> void:
 
 func explode():
 	sfx.play()
+	Global.waffleHP-=25
 	explodeframe=0.0
 	apply_central_impulse(Vector3(0,150,0))
