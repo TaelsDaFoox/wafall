@@ -17,7 +17,8 @@ func _on_bread_button_pressed() -> void:
 
 
 func _on_jolt_button_pressed() -> void:
-	pass # Replace with function body.
+	Global.playermodel=2
+	waffle.updatemodel()
 
 
 func _on_kirby_button_pressed() -> void:

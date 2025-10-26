@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnev2lgprl2j2"]
+
+[ext_resource type="Script" uid="uid://d12vxe1aiusss" path="res://death_screen.gd" id="1_ex68u"]
+[ext_resource type="FontFile" uid="uid://kg3qgerw6jf0" path="res://fonts/comicbd.ttf" id="2_6bi5g"]
+
+[node name="DeathUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ex68u")
+
+[node name="Wafflover" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -5.0
+offset_bottom = 345.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_6bi5g")
+theme_override_font_sizes/font_size = 60
+text = "it's wafflover..."
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+offset_right = -1.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("2_6bi5g")
+theme_override_font_sizes/font_size = 92
+text = "1234567890"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 84.0
+offset_bottom = 135.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_6bi5g")
+theme_override_font_sizes/font_size = 35
+text = "Final Score:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 275.0
+offset_right = -9.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6bi5g")
+theme_override_font_sizes/font_size = 40
+text = "Fall again"
+
+[node name="MenuButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6bi5g")
+theme_override_font_sizes/font_size = 40
+text = "Back to Menu"
+
+[connection signal="pressed" from="HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

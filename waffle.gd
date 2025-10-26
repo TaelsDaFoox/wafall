@@ -10,10 +10,12 @@ var explodeframe := 19.0
 var wafflemodel = load("res://models/waffle.glb")
 var breadmodel = load("res://models/bread.glb")
 var kirbymodel = load("res://models/mr dreamland.glb")
+var joltmodel = load("res://models/jolt email sit.glb")
 var alive=true
 var dieVel:=Vector3.ZERO
 @onready var collision = $CollisionShape3D
 @onready var model = $model
+var deathscreen = load("res://death_screen.tscn")
 func _ready() -> void:
 	updatemodel()
 func updatemodel():
@@ -23,6 +25,8 @@ func updatemodel():
 			model = wafflemodel.instantiate()
 		1:
 			model = breadmodel.instantiate()
+		2:
+			model = joltmodel.instantiate()
 		3:
 			model = kirbymodel.instantiate()
 	add_child(model)
@@ -33,11 +37,9 @@ func _physics_process(delta: float) -> void:
 		dieVel.x=lerpf(dieVel.x,0.0,delta*3.0)
 		dieVel.y=lerpf(dieVel.y,0.0,delta*3.0)
 		dieVel.z=lerpf(dieVel.z,0.0,delta*3.0)
-		print (dieVel)
-		Global.waffleHP=0
 	else:
 		Global.waffleHP=clampf(Global.waffleHP+(healrate*delta),0.0,100.0)
-	if Global.waffleHP<=25.0 and alive:
+	if Global.waffleHP<30.0 and alive:
 		if not dangersfx.playing:
 			dangersfx.playing=true
 		if dangersfx.get_playback_position()<0.5:
@@ -64,13 +66,17 @@ func _physics_process(delta: float) -> void:
 	explosion.frame = int(explodeframe)
 
 func explode():
-	Global.waffleHP-=25
+	Global.waffleHP-=30.0
+		#get_tree().reload_current_scene()
+	sfx.play()
+	explodeframe=0.0
+	apply_central_impulse(Vector3(0,150,0))
 	if Global.waffleHP<=0 and alive:
 		alive=false
 		collision.disabled=true
 		model.visible=false
 		dieVel=linear_velocity
-		#get_tree().reload_current_scene()
-	sfx.play()
-	explodeframe=0.0
-	apply_central_impulse(Vector3(0,150,0))
+		await get_tree().create_timer(1.0).timeout
+		get_parent().get_node("UI").queue_free()
+		Global.waffleHP=100.0
+		get_parent().add_child(deathscreen.instantiate())
