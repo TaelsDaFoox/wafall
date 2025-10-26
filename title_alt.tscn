@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cis7jhbcm5lqp"]
+[gd_scene load_steps=9 format=3 uid="uid://cis7jhbcm5lqp"]
 
 [ext_resource type="Material" uid="uid://chl7b8pmev0ih" path="res://materials/Bricks.tres" id="1_a8gxr"]
 [ext_resource type="PackedScene" uid="uid://dian7bnwaawuo" path="res://waffle.tscn" id="2_2i62n"]
 [ext_resource type="PhysicsMaterial" uid="uid://oyblx46378ey" path="res://materials/frictionless.tres" id="3_si5mo"]
 [ext_resource type="Script" uid="uid://dfxaw82x21wd3" path="res://camera_title.gd" id="4_g24ii"]
 [ext_resource type="Script" uid="uid://cborgbtsf0dtx" path="res://wall_collision.gd" id="5_4q325"]
-[ext_resource type="AudioStream" uid="uid://dhbvcygskw4al" path="res://audio/music/Delve!!!.wav" id="7_a8gxr"]
 [ext_resource type="Material" uid="uid://cc6jq52jf3gxv" path="res://materials/jpeg.tres" id="7_p2suv"]
 [ext_resource type="PackedScene" uid="uid://dg6t0vlqegxpm" path="res://titlemenus/title_menu_main.tscn" id="8_2i62n"]
 
@@ -61,10 +60,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_a8gxr")
-volume_db = -10.0
-autoplay = true
 
 [node name="TitleMenuMain" parent="." instance=ExtResource("8_2i62n")]

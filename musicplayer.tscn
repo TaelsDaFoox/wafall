@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbtspswv3s1ml"]
+
+[ext_resource type="AudioStream" uid="uid://dhbvcygskw4al" path="res://audio/music/Delve!!!.wav" id="1_ryb5w"]
+[ext_resource type="Script" uid="uid://dqsunspyegxc" path="res://musicplayer.gd" id="2_kjvmg"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_ryb5w")
+volume_db = -5.0
+autoplay = true
+script = ExtResource("2_kjvmg")

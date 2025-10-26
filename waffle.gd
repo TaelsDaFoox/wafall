@@ -3,7 +3,7 @@ extends RigidBody3D
 var falldistextra :=0.0
 @onready var explosion = $explosion
 var explodeframe := 19.0
-@onready var sfx := $AudioStreamPlayer
+@onready var sfx := $ExplodeSFX
 @export var healrate = 0.5
 @onready var dangersfx = $DangerSFX
 @onready var dangerspr = $danger
@@ -15,9 +15,13 @@ var alive=true
 var dieVel:=Vector3.ZERO
 @onready var collision = $CollisionShape3D
 @onready var model = $model
+@onready var fallsfx = $FallSFX
 var deathscreen = load("res://death_screen.tscn")
 func _ready() -> void:
+	Global.musiccringe=false
 	updatemodel()
+	if Global.canMove==true:
+		fallsfx.play()
 func updatemodel():
 	model.queue_free()
 	match Global.playermodel:
@@ -72,6 +76,7 @@ func explode():
 	explodeframe=0.0
 	apply_central_impulse(Vector3(0,150,0))
 	if Global.waffleHP<=0 and alive:
+		Global.musiccringe=true
 		alive=false
 		collision.disabled=true
 		model.visible=false
