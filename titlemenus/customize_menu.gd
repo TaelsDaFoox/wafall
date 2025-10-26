@@ -14,3 +14,12 @@ func _on_waffle_button_pressed() -> void:
 func _on_bread_button_pressed() -> void:
 	Global.playermodel=1
 	waffle.updatemodel()
+
+
+func _on_jolt_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_kirby_button_pressed() -> void:
+	Global.playermodel=3
+	waffle.updatemodel()

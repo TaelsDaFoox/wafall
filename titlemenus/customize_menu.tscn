@@ -100,3 +100,5 @@ text = "Mr. Dreamland"
 [connection signal="pressed" from="DoneButton" to="." method="_on_customize_pressed"]
 [connection signal="pressed" from="GridContainer/WaffleButton" to="." method="_on_waffle_button_pressed"]
 [connection signal="pressed" from="GridContainer/BreadButton" to="." method="_on_bread_button_pressed"]
+[connection signal="pressed" from="GridContainer/JoltButton" to="." method="_on_jolt_button_pressed"]
+[connection signal="pressed" from="GridContainer/KirbyButton" to="." method="_on_kirby_button_pressed"]
