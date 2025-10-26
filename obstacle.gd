@@ -1,5 +1,6 @@
 extends Node3D
 var spinspeed := 0.0
+var active=true
 
 func _ready() -> void:
 	spinspeed= randf_range(-1,1)
@@ -12,7 +13,10 @@ func wrap():
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	body.explode()
+	if active:
+		body.explode()
+		active=false
+		visible=false
 	#get_tree().reload_current_scene()
 	
 func _process(delta: float) -> void:

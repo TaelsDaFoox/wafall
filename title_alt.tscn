@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cis7jhbcm5lqp"]
+[gd_scene load_steps=10 format=3 uid="uid://cis7jhbcm5lqp"]
 
 [ext_resource type="Material" uid="uid://chl7b8pmev0ih" path="res://materials/Bricks.tres" id="1_a8gxr"]
 [ext_resource type="PackedScene" uid="uid://dian7bnwaawuo" path="res://waffle.tscn" id="2_2i62n"]
 [ext_resource type="PhysicsMaterial" uid="uid://oyblx46378ey" path="res://materials/frictionless.tres" id="3_si5mo"]
 [ext_resource type="Script" uid="uid://dfxaw82x21wd3" path="res://camera_title.gd" id="4_g24ii"]
 [ext_resource type="Script" uid="uid://cborgbtsf0dtx" path="res://wall_collision.gd" id="5_4q325"]
-[ext_resource type="FontFile" uid="uid://kg3qgerw6jf0" path="res://fonts/comicbd.ttf" id="7_2i62n"]
 [ext_resource type="AudioStream" uid="uid://dhbvcygskw4al" path="res://audio/music/Delve!!!.wav" id="7_a8gxr"]
 [ext_resource type="Material" uid="uid://cc6jq52jf3gxv" path="res://materials/jpeg.tres" id="7_p2suv"]
-[ext_resource type="Script" uid="uid://ws4pks405ugm" path="res://title_menu.gd" id="8_si5mo"]
+[ext_resource type="PackedScene" uid="uid://dg6t0vlqegxpm" path="res://titlemenus/title_menu_main.tscn" id="8_2i62n"]
 
 [sub_resource type="Environment" id="Environment_36lrl"]
 ambient_light_source = 2
@@ -52,76 +51,6 @@ sides = 64
 ring_sides = 3
 script = ExtResource("5_4q325")
 
-[node name="TitleMenu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("8_si5mo")
-
-[node name="Label" type="Label" parent="TitleMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -15.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("7_2i62n")
-theme_override_font_sizes/font_size = 100
-text = "wafall"
-horizontal_alignment = 1
-
-[node name="Start" type="Button" parent="TitleMenu"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -312.0
-offset_top = 139.0
-offset_right = -56.0
-offset_bottom = -173.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("7_2i62n")
-theme_override_font_sizes/font_size = 28
-text = "FALL"
-
-[node name="Customize" type="Button" parent="TitleMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = 292.0
-offset_right = -340.0
-offset_bottom = -31.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("7_2i62n")
-theme_override_font_sizes/font_size = 20
-text = "Customize yo' waffle"
-
-[node name="Label2" type="Label" parent="TitleMenu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = -144.0
-offset_right = 392.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("7_2i62n")
-theme_override_font_sizes/font_size = 20
-text = "Music: John \"Joy\" Tay - Delve!!!"
-vertical_alignment = 2
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -138,4 +67,4 @@ stream = ExtResource("7_a8gxr")
 volume_db = -10.0
 autoplay = true
 
-[connection signal="pressed" from="TitleMenu/Start" to="TitleMenu" method="_on_start_pressed"]
+[node name="TitleMenuMain" parent="." instance=ExtResource("8_2i62n")]

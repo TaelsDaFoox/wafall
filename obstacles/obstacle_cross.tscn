@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn2ci8rip5o33"]
+
+[ext_resource type="Script" uid="uid://mguwx63lkt2u" path="res://obstacle.gd" id="1_jj240"]
+[ext_resource type="Material" uid="uid://jdpydlx2ixyq" path="res://materials/killbrick_mat.tres" id="2_ml66l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_882fk"]
+size = Vector3(10.728516, 2.282959, 108.23047)
+
+[node name="Obstacle" type="Node3D"]
+script = ExtResource("1_jj240")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_882fk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_882fk")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(10.676025, 2.248291, 114.22754)
+material = ExtResource("2_ml66l")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+size = Vector3(10.676025, 2.248291, 114.22754)
+material = ExtResource("2_ml66l")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

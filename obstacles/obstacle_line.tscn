@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://jdpydlx2ixyq" path="res://materials/killbrick_mat.tres" id="1_qdxwr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_882fk"]
-size = Vector3(10.728516, 2.282959, 108.23047)
+size = Vector3(21.56836, 2.282959, 108.23047)
 
 [node name="Obstacle" type="Node3D"]
 script = ExtResource("1_882fk")
@@ -17,7 +17,7 @@ collision_mask = 2
 shape = SubResource("BoxShape3D_882fk")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(10.676025, 2.248291, 114.22754)
+size = Vector3(21.563477, 2.248291, 114.22754)
 material = ExtResource("1_qdxwr")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

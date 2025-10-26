@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpb5aibr2xwyg"]
+
+[ext_resource type="Script" uid="uid://mguwx63lkt2u" path="res://obstacle.gd" id="1_lh1yy"]
+[ext_resource type="Material" uid="uid://jdpydlx2ixyq" path="res://materials/killbrick_mat.tres" id="2_27fsf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_882fk"]
+size = Vector3(4, 2.282959, 194.80847)
+
+[node name="Obstacle" type="Node3D"]
+script = ExtResource("1_lh1yy")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -20)
+shape = SubResource("BoxShape3D_882fk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20, 0, -20)
+shape = SubResource("BoxShape3D_882fk")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20)
+shape = SubResource("BoxShape3D_882fk")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.289001, 0, 19.999998)
+shape = SubResource("BoxShape3D_882fk")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0.9699707)
+size = Vector3(4, 2.248291, 156.16748)
+material = ExtResource("2_27fsf")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0715332, 0, -20)
+size = Vector3(4, 2.248291, 154.3706)
+material = ExtResource("2_27fsf")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0.7565918)
+size = Vector3(4, 2.248291, 152.71436)
+material = ExtResource("2_27fsf")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.9797363, 0, 19.999998)
+size = Vector3(4, 2.248291, 170.18701)
+material = ExtResource("2_27fsf")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

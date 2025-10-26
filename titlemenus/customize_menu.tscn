@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv4xd3u5b5dbt"]
+
+[ext_resource type="Script" uid="uid://dtiof23kyxmbe" path="res://titlemenus/customize_menu.gd" id="1_qk5r2"]
+[ext_resource type="FontFile" uid="uid://kg3qgerw6jf0" path="res://fonts/comicbd.ttf" id="2_20dcv"]
+
+[node name="CustomizeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qk5r2")
+
+[node name="Header" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_20dcv")
+theme_override_font_sizes/font_size = 55
+text = "Customize yo' waffle"
+horizontal_alignment = 1
+
+[node name="DoneButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 81.0
+offset_top = 292.0
+offset_right = -339.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_20dcv")
+theme_override_font_sizes/font_size = 30
+text = "Done"
+
+[node name="MusicCredit" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -145.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_20dcv")
+theme_override_font_sizes/font_size = 20
+text = "Music: John \"Joy\" Tay - Delve!!!"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 396.0
+offset_top = 85.0
+offset_right = -17.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaffleButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_20dcv")
+theme_override_font_sizes/font_size = 28
+text = "Waffle"
+
+[node name="BreadButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_20dcv")
+theme_override_font_sizes/font_size = 28
+text = "Bread
+"
+
+[node name="JoltButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_20dcv")
+theme_override_font_sizes/font_size = 28
+text = "Plushie"
+
+[node name="KirbyButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_20dcv")
+theme_override_font_sizes/font_size = 24
+text = "Mr. Dreamland"
+
+[connection signal="pressed" from="DoneButton" to="." method="_on_customize_pressed"]
+[connection signal="pressed" from="GridContainer/WaffleButton" to="." method="_on_waffle_button_pressed"]
+[connection signal="pressed" from="GridContainer/BreadButton" to="." method="_on_bread_button_pressed"]

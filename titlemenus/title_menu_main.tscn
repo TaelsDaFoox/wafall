@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg6t0vlqegxpm"]
+
+[ext_resource type="Script" uid="uid://ws4pks405ugm" path="res://title_menu.gd" id="1_li0mb"]
+[ext_resource type="FontFile" uid="uid://kg3qgerw6jf0" path="res://fonts/comicbd.ttf" id="2_v6bae"]
+
+[node name="TitleMenuMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_li0mb")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_v6bae")
+theme_override_font_sizes/font_size = 100
+text = "wafall"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = 139.0
+offset_right = -56.0
+offset_bottom = -173.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_v6bae")
+theme_override_font_sizes/font_size = 28
+text = "FALL"
+
+[node name="Customize" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 292.0
+offset_right = -340.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_v6bae")
+theme_override_font_sizes/font_size = 20
+text = "Customize yo' waffle"
+
+[node name="MusicCredit" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -145.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_v6bae")
+theme_override_font_sizes/font_size = 20
+text = "Music: John \"Joy\" Tay - Delve!!!"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Customize" to="." method="_on_customize_pressed"]
