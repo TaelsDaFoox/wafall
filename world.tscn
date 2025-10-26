@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cborgbtsf0dtx" path="res://wall_collision.gd" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://bvivxs4owof8v" path="res://ui.tscn" id="6_dwbse"]
 [ext_resource type="Script" uid="uid://hdu1pfek40vo" path="res://obstacle_controller.gd" id="8_gbfbk"]
-[ext_resource type="AudioStream" uid="uid://dqodpc3vnxchn" path="res://audio/music/hkmori - anybody can find love (except you.).mp3" id="8_ioo17"]
+[ext_resource type="AudioStream" uid="uid://dhbvcygskw4al" path="res://audio/music/Delve!!!.wav" id="8_ioo17"]
 [ext_resource type="Material" uid="uid://cc6jq52jf3gxv" path="res://materials/jpeg.tres" id="9_ioo17"]
 
 [sub_resource type="Environment" id="Environment_gv5m4"]
@@ -61,6 +61,7 @@ script = ExtResource("8_gbfbk")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ioo17")
 volume_db = -5.0
+autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

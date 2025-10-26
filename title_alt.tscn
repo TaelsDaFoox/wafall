@@ -97,17 +97,32 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 80.0
-offset_top = 309.0
+offset_top = 292.0
 offset_right = -340.0
-offset_bottom = -14.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_2i62n")
 theme_override_font_sizes/font_size = 20
 text = "Customize yo' waffle"
 
+[node name="Label2" type="Label" parent="TitleMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -144.0
+offset_right = 392.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_2i62n")
+theme_override_font_sizes/font_size = 20
+text = "Music: John \"Joy\" Tay - Delve!!!"
+vertical_alignment = 2
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = ExtResource("7_p2suv")

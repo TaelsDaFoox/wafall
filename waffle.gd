@@ -5,8 +5,21 @@ var falldistextra :=0.0
 var explodeframe := 19.0
 @onready var sfx := $AudioStreamPlayer
 @export var healrate = 0.5
+@onready var dangersfx = $DangerSFX
+@onready var dangerspr = $danger
+@onready var model = $model
 func _physics_process(delta: float) -> void:
 	Global.waffleHP=clampf(Global.waffleHP+(healrate*delta),0.0,100.0)
+	if Global.waffleHP<=25.0:
+		if not dangersfx.playing:
+			dangersfx.playing=true
+		if dangersfx.get_playback_position()<0.5:
+			dangerspr.visible=true
+		else:
+			dangerspr.visible=false
+	else:
+		dangerspr.visible=false
+		dangersfx.playing=false
 	var input_dir = Input.get_vector("left","right","up","down",0.5)
 	apply_central_force(Vector3(input_dir.x,0,input_dir.y)*(delta*movespeed))
 	apply_torque(Vector3(input_dir.y,0,-input_dir.x)*(delta*movespeed))
