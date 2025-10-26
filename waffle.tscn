@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dian7bnwaawuo"]
+[gd_scene load_steps=7 format=3 uid="uid://dian7bnwaawuo"]
 
 [ext_resource type="PackedScene" uid="uid://b113vnreh7lai" path="res://models/waffle.glb" id="1_0tgtb"]
 [ext_resource type="Script" uid="uid://dfneuo3jlriph" path="res://waffle.gd" id="1_lkhhq"]
 [ext_resource type="Texture2D" uid="uid://bvbqan13o6ot2" path="res://textures/explode.png" id="3_mdcnc"]
 [ext_resource type="AudioStream" uid="uid://dtvjxleqjv5e" path="res://audio/sfx/snd_badexplosion.wav" id="4_8lmp6"]
+[ext_resource type="AudioStream" uid="uid://1qejg8b6ry3p" path="res://audio/sfx/paper-mario-64-danger_2UDcUD1.mp3" id="5_1olf3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lkhhq"]
 size = Vector3(7.9521484, 9.730469, 1.2021484)
@@ -29,3 +30,8 @@ vframes = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_8lmp6")
+
+[node name="DangerSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1olf3")
+volume_db = -20.0
+autoplay = true

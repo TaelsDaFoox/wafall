@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://cis7jhbcm5lqp"]
+
+[ext_resource type="Material" uid="uid://chl7b8pmev0ih" path="res://materials/Bricks.tres" id="1_a8gxr"]
+[ext_resource type="PackedScene" uid="uid://dian7bnwaawuo" path="res://waffle.tscn" id="2_2i62n"]
+[ext_resource type="PhysicsMaterial" uid="uid://oyblx46378ey" path="res://materials/frictionless.tres" id="3_si5mo"]
+[ext_resource type="Script" uid="uid://dfxaw82x21wd3" path="res://camera_title.gd" id="4_g24ii"]
+[ext_resource type="Script" uid="uid://cborgbtsf0dtx" path="res://wall_collision.gd" id="5_4q325"]
+[ext_resource type="FontFile" uid="uid://kg3qgerw6jf0" path="res://fonts/comicbd.ttf" id="7_2i62n"]
+[ext_resource type="AudioStream" uid="uid://dhbvcygskw4al" path="res://audio/music/Delve!!!.wav" id="7_a8gxr"]
+[ext_resource type="Material" uid="uid://cc6jq52jf3gxv" path="res://materials/jpeg.tres" id="7_p2suv"]
+[ext_resource type="Script" uid="uid://ws4pks405ugm" path="res://title_menu.gd" id="8_si5mo"]
+
+[sub_resource type="Environment" id="Environment_36lrl"]
+ambient_light_source = 2
+ambient_light_color = Color(0.58443636, 0.5058974, 0.77317214, 1)
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.005
+
+[node name="TitleAlt" type="Node3D"]
+
+[node name="Well" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3942871, 0)
+radius = 50.0
+height = 2000.0
+sides = 64
+material = ExtResource("1_a8gxr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_36lrl")
+
+[node name="Waffle" parent="." instance=ExtResource("2_2i62n")]
+physics_material_override = ExtResource("3_si5mo")
+movespeed = 100000.0
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -13.661747, -38.720566, 18.476261)
+current = true
+script = ExtResource("4_g24ii")
+player = NodePath("../Waffle")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+shadow_enabled = true
+omni_range = 96.99061
+
+[node name="WallCollision" type="CSGTorus3D" parent="."]
+use_collision = true
+collision_priority = 10.0
+inner_radius = 40.632484
+outer_radius = 79.554504
+sides = 64
+ring_sides = 3
+script = ExtResource("5_4q325")
+
+[node name="TitleMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_si5mo")
+
+[node name="Label" type="Label" parent="TitleMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_2i62n")
+theme_override_font_sizes/font_size = 100
+text = "wafall"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="TitleMenu"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = 139.0
+offset_right = -56.0
+offset_bottom = -173.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_2i62n")
+theme_override_font_sizes/font_size = 28
+text = "FALL"
+
+[node name="Customize" type="Button" parent="TitleMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 309.0
+offset_right = -340.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_2i62n")
+theme_override_font_sizes/font_size = 20
+text = "Customize yo' waffle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("7_p2suv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_a8gxr")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="TitleMenu/Start" to="TitleMenu" method="_on_start_pressed"]
