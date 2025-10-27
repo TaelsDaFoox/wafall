@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv4xd3u5b5dbt"]
+[gd_scene load_steps=4 format=3 uid="uid://dv4xd3u5b5dbt"]
 
 [ext_resource type="Script" uid="uid://dtiof23kyxmbe" path="res://titlemenus/customize_menu.gd" id="1_qk5r2"]
 [ext_resource type="FontFile" uid="uid://kg3qgerw6jf0" path="res://fonts/comicbd.ttf" id="2_20dcv"]
+[ext_resource type="PackedScene" uid="uid://cs3ift8tg5po" path="res://music_credit.tscn" id="3_20dcv"]
 
 [node name="CustomizeMenu" type="Control"]
 layout_mode = 3
@@ -40,25 +41,6 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_20dcv")
 theme_override_font_sizes/font_size = 30
 text = "Done"
-
-[node name="MusicCredit" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -392.0
-offset_top = -145.0
-offset_right = -4.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_20dcv")
-theme_override_font_sizes/font_size = 20
-text = "Music: John \"Joy\" Tay - Delve!!!"
-horizontal_alignment = 2
-vertical_alignment = 2
 
 [node name="hitboxnote" type="Label" parent="."]
 layout_mode = 1
@@ -115,6 +97,13 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_20dcv")
 theme_override_font_sizes/font_size = 24
 text = "Mr. Dreamland"
+
+[node name="MusicCredit" parent="." instance=ExtResource("3_20dcv")]
+layout_mode = 1
+anchors_preset = 11
+anchor_top = 0.0
+offset_top = 215.0
+grow_horizontal = 0
 
 [connection signal="pressed" from="DoneButton" to="." method="_on_customize_pressed"]
 [connection signal="pressed" from="GridContainer/WaffleButton" to="." method="_on_waffle_button_pressed"]

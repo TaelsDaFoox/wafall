@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg6t0vlqegxpm"]
+[gd_scene load_steps=5 format=3 uid="uid://dg6t0vlqegxpm"]
 
 [ext_resource type="Script" uid="uid://ws4pks405ugm" path="res://titlemenus/title_menu.gd" id="1_li0mb"]
 [ext_resource type="FontFile" uid="uid://kg3qgerw6jf0" path="res://fonts/comicbd.ttf" id="2_v6bae"]
 [ext_resource type="AudioStream" uid="uid://ccp8l7oi6bbou" path="res://audio/sfx/greatChoice.ogg" id="3_v6bae"]
+[ext_resource type="PackedScene" uid="uid://cs3ift8tg5po" path="res://music_credit.tscn" id="4_q46n0"]
 
 [node name="TitleMenuMain" type="Control"]
 layout_mode = 3
@@ -27,22 +28,6 @@ theme_override_font_sizes/font_size = 100
 text = "wafall"
 horizontal_alignment = 1
 
-[node name="Start" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -312.0
-offset_top = 139.0
-offset_right = -56.0
-offset_bottom = -173.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_v6bae")
-theme_override_font_sizes/font_size = 28
-text = "FALL"
-
 [node name="Customize" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -58,28 +43,45 @@ theme_override_fonts/font = ExtResource("2_v6bae")
 theme_override_font_sizes/font_size = 20
 text = "Customize yo' waffle"
 
-[node name="MusicCredit" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -392.0
-offset_top = -145.0
-offset_right = -4.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_v6bae")
-theme_override_font_sizes/font_size = 20
-text = "Music: John \"Joy\" Tay - Delve!!!"
-horizontal_alignment = 2
-vertical_alignment = 2
-
 [node name="selectsfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_v6bae")
-volume_db = -5.0
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 374.0
+offset_top = 100.0
+offset_right = -26.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_v6bae")
+theme_override_font_sizes/font_size = 28
+text = "FALL"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_v6bae")
+theme_override_font_sizes/font_size = 28
+text = "Settings"
+
+[node name="MusicCredit" parent="." instance=ExtResource("4_q46n0")]
+layout_mode = 1
+anchors_preset = 3
+offset_left = -635.0
+offset_top = -141.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [connection signal="pressed" from="Customize" to="." method="_on_customize_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]

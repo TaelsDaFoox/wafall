@@ -1,4 +1,5 @@
 extends AudioStreamPlayer
+var music = [load("res://audio/music/Delve!!!.wav"),load("res://audio/music/hkmori - anybody can find love (except you.).mp3")]
 
 func _process(delta: float) -> void:
 	if Global.musiccringe:
@@ -7,3 +8,7 @@ func _process(delta: float) -> void:
 	else:
 		volume_db=lerp(volume_db,-5.0,delta*2.0)
 		pitch_scale=lerp(pitch_scale,1.0,delta*2.0)
+
+func ChangeSongTo(songID:int):
+	stream=music[songID]
+	play()

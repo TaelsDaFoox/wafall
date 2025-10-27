@@ -17,6 +17,7 @@ var dieVel:=Vector3.ZERO
 @onready var model = $model
 @onready var fallsfx = $FallSFX
 var deathscreen = load("res://death_screen.tscn")
+@onready var dangertimer = $DangerTimer
 func _ready() -> void:
 	Global.musiccringe=false
 	updatemodel()
@@ -45,8 +46,10 @@ func _physics_process(delta: float) -> void:
 		Global.waffleHP=clampf(Global.waffleHP+(healrate*delta),0.0,100.0)
 	if Global.waffleHP<30.0 and alive:
 		if not dangersfx.playing:
-			dangersfx.playing=true
-		if dangersfx.get_playback_position()<0.5:
+			if dangertimer.is_stopped():
+				dangertimer.start()
+				dangersfx.playing=true
+		if dangertimer.time_left>0.4:
 			dangerspr.visible=true
 		else:
 			dangerspr.visible=false
@@ -85,3 +88,7 @@ func explode():
 		get_parent().get_node("UI").queue_free()
 		Global.waffleHP=100.0
 		get_parent().add_child(deathscreen.instantiate())
+
+
+func _on_danger_timer_timeout() -> void:
+	dangersfx.playing=true
