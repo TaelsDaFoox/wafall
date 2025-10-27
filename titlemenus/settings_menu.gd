@@ -4,6 +4,7 @@ extends Control
 var mainMenu = load("res://titlemenus/title_menu_main.tscn")
 
 func _ready() -> void:
+	volslider.grab_focus()
 	volslider.value = Global.volslider
 	musicdropdown.selected=Global.songID
 func _on_volume_slider_value_changed(value: float) -> void:
