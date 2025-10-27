@@ -2,8 +2,13 @@ extends Control
 @onready var scoreLabel = $ScoreLabel
 #var gamepadded = false
 @onready var firstbtn = $HBoxContainer/RestartButton
+@onready var highscoretext = $HighScore
 func _ready() -> void:
-	scoreLabel.text=str(int(floor(Global.falldist/20)))
+	var score = int(floor(Global.falldist/20))
+	if score > Global.highscore:
+		Global.highscore=score
+	scoreLabel.text=str(score)
+	highscoretext.text="High Score: "+str(Global.highscore)
 	firstbtn.grab_focus()
 
 #func _unhandled_input(event: InputEvent) -> void:

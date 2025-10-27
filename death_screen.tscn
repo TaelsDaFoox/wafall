@@ -30,9 +30,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 27.0
+offset_top = 9.0
 offset_right = -1.0
-offset_bottom = -17.0
+offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 40
@@ -46,8 +46,8 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 84.0
-offset_bottom = 135.0
+offset_top = 76.0
+offset_bottom = 127.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("2_6bi5g")
@@ -80,6 +80,23 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6bi5g")
 theme_override_font_sizes/font_size = 40
 text = "Back to Menu"
+
+[node name="HighScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 204.0
+offset_right = -1.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_6bi5g")
+theme_override_font_sizes/font_size = 32
+text = "High Score: 1234567890"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
