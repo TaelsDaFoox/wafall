@@ -11,3 +11,5 @@ Modelling - Blender
 Textures - paint.net
 
 Audio editing - Audacity
+
+play the game here: https://taelsdafoox.itch.io/wafall
