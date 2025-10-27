@@ -1,5 +1,5 @@
 extends AudioStreamPlayer
-var music = [load("res://audio/music/Delve!!!.wav"),load("res://audio/music/hkmori - anybody can find love (except you.).mp3")]
+var music = [load("res://audio/music/Delve!!!.wav"),load("res://audio/music/hkmori - anybody can find love (except you.).mp3"),load("res://audio/music/Toby Fox - Amalgam (PS1 Mix).mp3"),load("res://audio/music/silence.mp3")]
 
 func _process(delta: float) -> void:
 	if Global.musiccringe:

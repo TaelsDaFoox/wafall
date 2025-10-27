@@ -91,11 +91,15 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ebjd2")
 selected = 0
-item_count = 2
+item_count = 4
 popup/item_0/text = "John \"Joy\" Tay - Delve!!!"
 popup/item_0/id = 0
 popup/item_1/text = "hkmori - anybody can find love (except you.)"
 popup/item_1/id = 1
+popup/item_2/text = "Neoware/Toby Fox - Amalgam (PS1 Mix)"
+popup/item_2/id = 2
+popup/item_3/text = "no music"
+popup/item_3/id = 3
 
 [node name="MusicSelectLabel" type="Label" parent="MusicSelect"]
 layout_mode = 1
