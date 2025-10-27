@@ -1,6 +1,6 @@
 # wafall
 classic flash style game based on that falling waffle gif
-
+Use WASD, IJKL, Arrow Keys, or a joystick/dpad to control the waffle as you fall forever. Dodge the obstacles for as long as you can, and go for a high score!
 
 PROGRAMS USED:
 
