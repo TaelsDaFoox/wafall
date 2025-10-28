@@ -12,4 +12,6 @@ Textures - paint.net
 
 Audio editing - Audacity
 
-play the game here: https://taelsdafoox.itch.io/wafall
+demo video: https://youtu.be/1uIbZDzFq60
+
+...or just play the game here! https://taelsdafoox.itch.io/wafall
